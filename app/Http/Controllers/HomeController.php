@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Products;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,5 +15,12 @@ class HomeController extends Controller
         $category = Category::all();
 
         return view('home', compact('products', 'category'));
+}
+
+
+public function user(){
+    $user = User::all() ;
+    return view('admin.user', compact('user'));
+
 }
 }

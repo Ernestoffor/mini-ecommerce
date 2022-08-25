@@ -50,6 +50,6 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     Route::get('product-edit/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit']);
     Route::put('product-update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update']);
     Route::get('product-delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'destroy']);
-
+    Route::get('users', [App\Http\Controllers\HomeController::class, 'user']) ;
 
 });

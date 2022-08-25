@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="card" style="margin-left: 300px ; text-align:center ">
+<div class="card" style=" text-align:center ">
     <div class="card-header " >
         <h1>Products </h1>
     </div>
