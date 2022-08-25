@@ -18,10 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->integer('price');
-            $table->unsignedBigInteger('categories_id');
             
             $table->timestamps();
-            $table->index('categories_id');
+            
         });
     }
 

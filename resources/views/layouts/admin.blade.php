@@ -33,7 +33,7 @@
         <div class="main-panel">
             @include('layouts.inc.navbar')
         </div>
-        <div class="content">
+        <div class="content " style="margin-top: 50px;">
             @yield('content')
         </div>
         @include('layouts.inc.footerbar')

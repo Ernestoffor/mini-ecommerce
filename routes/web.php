@@ -36,4 +36,9 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     Route::get('create', [App\Http\Controllers\Admin\CategoryController::class, 'create']);
 
     Route::post('store', [App\Http\Controllers\Admin\CategoryController::class, 'store']);
+
+    Route::get('products', [App\Http\Controllers\Admin\ProductController::class, 'index']);
+    Route::get('create-product', [App\Http\Controllers\Admin\ProductController::class, 'create']);
+
+    Route::post('store-product', [App\Http\Controllers\Admin\ProductController::class, 'store']);
 });

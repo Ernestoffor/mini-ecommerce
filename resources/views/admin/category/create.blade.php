@@ -16,6 +16,8 @@
                         autocomplete="name"  autofocus >
                 </div>
 
+                
+
                 <div class="col-md-4">
                 <label for="image"> Upload an Image</label>
                     <input type="file" name="image" class="form-control">

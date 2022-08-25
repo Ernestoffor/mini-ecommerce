@@ -23,7 +23,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        return view('admin.category.index');
+        $category = Category::all() ;
+        
+        return view('admin.category.index', compact('category'));
     }
 
     /**
@@ -50,7 +52,7 @@ class CategoryController extends Controller
         {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$file->$ext;
+            $filename = time().'.'.$ext;
             $file->move('assets/uploads/categories/',$filename);
             $category->image = $filename;
         }
