@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Products;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = Products::all();
+    $category = Category::all();
+
+    return view('welcome', compact('products', 'category'));
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::group(['middleware'=>['auth', 'isAdmin']], function () {
-//     Route::get('/dashboard', function () {
-// //         return view('admin.dashboard');
-//             return "This is the admin page";
-//     });
-// });
+
 
 Route::middleware(['auth','isAdmin'])->group(function (){
     Route::get('/dashboard', [App\Http\Controllers\Admin\FrontendController::class, 'index']);
