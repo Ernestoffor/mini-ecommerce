@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
@@ -82,7 +84,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+       return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -94,7 +98,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $category = Category::find($id);
+       if ($request->hasFile('image')){
+        $path = 'assets/uploads/categories'.$category->image;
+        if(File::exists($path)){
+            File::delete($path);
+           
+        }
+
+        $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            
+            $file->move('assets/uploads/categories/',$filename);
+            $category->image = $filename;
+            
+       }
+
+       $category->name = $request->input('name');
+        $category->update();
+
+        return redirect('/dashboard')->with('status', 'Category Updated Successfully');
+        
     }
 
     /**
@@ -105,6 +130,17 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        if ($category->image){
+            $path = 'assets/uploads/categories/'.$category->image;
+
+            if(File::exists($path)){
+                File::delete($path);
+            }
+        }
+        $category->delete();
+
+        return redirect('/dashboard')->with('status', 'Category Deleted Successfully');
+
     }
 }

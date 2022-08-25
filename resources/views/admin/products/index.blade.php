@@ -29,8 +29,8 @@
                             <td >  <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="Image" style="width:200px" > </td>
                             
                             <td>
-                                <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a href="{{url('product-edit')}}" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
                             </td>   
                       
                     </tr>
