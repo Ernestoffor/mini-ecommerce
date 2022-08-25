@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Ecommerce Shop</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,7 +36,9 @@
                 </div>
             @endif
 
+            <div style="justify-content: center; color:aqua; align-items:center; margin-left:200px">
             <h1> Welcome to Mini Ecommerce Shop</h1>
+            </div>
             
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 
