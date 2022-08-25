@@ -29,7 +29,7 @@
                     <input type="file" name="image" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <button type="submit" class="btn btn-primary">Create Product<?php</button>
+                    <button type="submit" class="btn btn-primary">Create Product</button>
                 </div>
             </div>
         </form>

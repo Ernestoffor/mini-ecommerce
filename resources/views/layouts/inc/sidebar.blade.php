@@ -9,14 +9,14 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white active bg-gradient-primary" href={{url('categories')}}>
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons ">dashboard</i>
             </div>
             <span class="nav-link-text ms-1">Categories</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link text-white " href="{{url('create')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -35,27 +35,10 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/billing.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Billing</span>
-          </a>
-        </li>
         
-        
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/profile.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
        
         <li class="nav-item">
-        <a class="dropdown-item nav-link text-white justify-content-center" href="{{ route('logout') }}"
+        <a class="dropdown-item nav-link text-white btn-primary justify-content-center" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); 
                     document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}</a></li>

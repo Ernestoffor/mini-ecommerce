@@ -47,5 +47,9 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     Route::put('category-update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update']);
     Route::get('category-delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
 
+    Route::get('product-edit/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit']);
+    Route::put('product-update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update']);
+    Route::get('product-delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'destroy']);
+
 
 });

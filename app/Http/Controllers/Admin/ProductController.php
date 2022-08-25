@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -74,7 +75,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $products = Products::find($id);
+
+       return view('admin.products.edit', compact('products'));
     }
 
     /**
@@ -86,7 +89,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Products::find($id);
+        if ($request->hasFile('image')){
+         $path = 'assets/uploads/products'.$product->image;
+         if(File::exists($path)){
+             File::delete($path);
+            
+         }
+ 
+         $file = $request->file('image');
+             $ext = $file->getClientOriginalExtension();
+             $filename = time().'.'.$ext;
+             
+             $file->move('assets/uploads/products/',$filename);
+             $product->image = $filename;
+             
+        }
+ 
+        $product->name = $request->input('name');
+         $product->update();
+ 
+         return redirect('/dashboard')->with('status', 'Product Updated Successfully');
+         
     }
 
     /**
@@ -97,6 +121,17 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Products::find($id);
+        if ($product->image){
+            $path = 'assets/uploads/products/'.$product->image;
+
+            if(File::exists($path)){
+                File::delete($path);
+            }
+        }
+        $product->delete();
+
+        return redirect('/dashboard')->with('status', 'Product Deleted Successfully');
+
     }
 }
