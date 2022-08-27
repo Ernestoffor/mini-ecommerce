@@ -50,6 +50,8 @@ class ProductController extends Controller
         }
         $products->name = $request->input('name');
         $products->price = $request->input('price');
+        $products->quantity = $request->input('quantity');
+        $products->category_name = $request->input('category_name');
         $products->save();
 
         return redirect('/dashboard')->with('status', 'Product Created Successfully');
@@ -107,7 +109,10 @@ class ProductController extends Controller
         }
  
         $product->name = $request->input('name');
-         $product->update();
+        $product->price = $request->input('price');
+        $product->quantity = $request->input('quantity');
+        $product->category_name = $request->input('category_name');
+        $product->update();
  
          return redirect('/dashboard')->with('status', 'Product Updated Successfully');
          

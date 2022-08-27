@@ -12,6 +12,36 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
+
+      @if (Route::has('login'))
+                <div class="hidden fixed top-10 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" style="margin-right:10px ;">Home</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" style="margin-right:10px ;" >Admin</a>
+
+                        <a class="nav-link text-white btn-primary justify-content-center" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); 
+                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}</a></li>
+                    <div class="text-white text-center me-2 d-flex align-items-left justify-content-left">
+              <i class="material-icons opacity-10"></i>
+            </div>
+                    
+                                
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                    </form>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+              @endauth
+                </div>
+            @endif
+
+
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>

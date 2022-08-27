@@ -7,8 +7,8 @@
     <table>
             <thead>
                 <tr>
-                    <th >Name </th>
-                    <th > Email</th>
+                    <th style="border: 2px solid black;">Name </th>
+                    <th  style="border: 2px solid black;"> Email</th>
                    
                 </tr>
             </thead>
@@ -18,8 +18,8 @@
                 @foreach($user as $item)
                 
                     <tr style="margin: 10px;">
-                            <td  >{{$item->name}}</td>
-                            <td >  {{$item->email}} </td>
+                            <td  style="border: 2px solid black;">{{$item->name}}</td>
+                            <td  style="border: 2px solid black;">  {{$item->email}} </td>
                             
                               
                       

@@ -6,14 +6,17 @@
         <h1>Products </h1>
     </div>
 
-    <div class="card-body">
-        <div class="table">
+    <div class="card-body ">
+        <div class="table" style="margin-left: 300px;">
         <table>
             <thead>
                 <tr>
+                    <th>Category</th>
                     <th >Title</th>
                    
                     <th>Price</th>
+                    <th >Quantity</th>
+                   
                     <th > Image</th>
                     <th> Action</th>
                 </tr>
@@ -24,8 +27,10 @@
                 @foreach($products as $item)
                 
                     <tr style="margin: 10px;">
+                            <td  >{{$item->category_name}}</td>
                             <td  >{{$item->name}}</td>
                             <td  >${{$item->price}}</td>
+                            <td  >{{$item->name}}</td>
                             <td >  <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="Image" style="width:200px" > </td>
                             
                             <td>

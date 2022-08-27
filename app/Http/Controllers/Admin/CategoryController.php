@@ -50,14 +50,14 @@ class CategoryController extends Controller
     {
         
         $category = new Category();
-        if($request->hasFile('image'))
-        {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('assets/uploads/categories/',$filename);
-            $category->image = $filename;
-        }
+        // if($request->hasFile('image'))
+        // {
+        //     $file = $request->file('image');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time().'.'.$ext;
+        //     $file->move('assets/uploads/categories/',$filename);
+        //     $category->image = $filename;
+        // }
         $category->name = $request->input('name');
         $category->save();
 

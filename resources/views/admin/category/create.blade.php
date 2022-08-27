@@ -18,10 +18,6 @@
 
                 
 
-                <div class="col-md-4">
-                <label for="image"> Upload an Image</label>
-                    <input type="file" name="image" class="form-control">
-                </div>
                 <div class="col-md-4 mb-3">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>

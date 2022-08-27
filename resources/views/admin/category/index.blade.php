@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th >Title</th>
-                    <th > Image</th>
+                    
                     <th> Action</th>
                 </tr>
             </thead>
@@ -23,7 +23,7 @@
                 
                     <tr style="margin: 10px;">
                             <td  >{{$item->name}}</td>
-                            <td >  <img src="{{asset('assets/uploads/categories/'.$item->image)}}" alt="Image" style="width:200px" > </td>
+                            
                             
                             <td>
                                 <a href="{{url('category-edit/'.$item->id)}}" class="btn btn-primary">Edit</a>

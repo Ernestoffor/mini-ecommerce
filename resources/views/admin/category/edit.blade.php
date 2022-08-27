@@ -19,14 +19,7 @@
 
                 
 
-                <div class="col-md-4">
-                <label for="image"> Upload an Image</label>
-                @if($category->image)
                 
-                    <img src="{{asset('assets/uploads/categories/'.$category->image)}}" alt="Category Image">
-                @endif
-                    <input type="file"  name="image" class="form-control">
-                </div>
                 <div class="col-md-4 mb-3">
                     <button type="submit" class="btn btn-primary">Edit A Category</button>
                 </div>

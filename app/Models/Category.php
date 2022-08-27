@@ -11,15 +11,14 @@ class Category extends Model
 
     protected $table = 'categories';
     protected $fillable = [
-        'name',
-        'image'
+        'name'
     ];
 
     protected $guarded = [];
     
-    // public function produtcs(){
-    //     return $this->hasMany(Products::class);
-    // }
+    public function produtcs(){
+        return $this->hasMany(Products::class);
+    }
 
 
 }
