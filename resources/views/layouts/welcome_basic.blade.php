@@ -27,6 +27,8 @@
 
     @include('layouts.inc.welcome_offcanvas')
 
+    
+
     <body class="antialiased">
         <div class="relative  items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
@@ -57,100 +59,19 @@
                 </div>
             @endif
 
-           
-            
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <h3>Product</h3>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <h3>Categories</h3>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                        <div class="card-body">
-        <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th style="margin-right: 80px;">Title</th>
-                   
-                    <th style="margin-left: 80px;">Price</th>
-                    <th > Image</th>
-                    
-                </tr>
-            </thead>
-
-            <tbody>
-               
-                @foreach($products as $item)
-                
-                    <tr style="margin: 10px;">
-                            <td style="margin-right: 80px;" >{{$item->name}}</td>
-                            <td  style="margin-left: 80px;">${{$item->price}}</td>
-                            <td >  <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="Image" style="width:200px" > </td>
-                            
-                            
-                      
-                    </tr>
-                @endforeach
-            </tbody>
-        </div>
-        </table>
-    </div>
-    
-</div>
-</div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                        <div class="card-body">
-        <div class="table">
-        <table>
-            <thead>
-                <tr>
-                    <th >Title</th>
-                    <th > Image</th>
-                    
-                </tr>
-            </thead>
-
-            <tbody>
-               
-                @foreach($category as $item)
-                
-                    <tr style="margin: 10px;">
-                            <td  >{{$item->name}}</td>
-                            <td >  <img src="{{asset('assets/uploads/categories/'.$item->image)}}" alt="Image" style="width:200px" > </td>
-                            
-                             
-                      
-                    </tr>
-                @endforeach
-            </tbody>
-        </div>
-        </table>
-    </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+           <div  style="margin: 20px">
+           @include('layouts.inc.slidebar')
+           </div>
 
 
+           @include('layouts.inc.products') 
 
-         <!-- Scripts -->
+            <!-- Scripts -->
     <script src="{{ asset('admin/js/popper.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/perfect-scrollbar.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/smooth-scrollbar.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/chartjs.min.js') }}" defer></script>
 
-   @yield('scripts')
-    </body>
+        </body>
 </html>
