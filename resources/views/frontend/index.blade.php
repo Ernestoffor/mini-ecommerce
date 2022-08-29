@@ -15,46 +15,62 @@
            @include('layouts.inc.slidebar')
 </div>
 
-<div class="py-10 " style="margin-top: 2rem;">
-<h1>Available Products</h1>
+<div class="py-10 " style="margin-top: 2rem; text-align:center">
+    <h1>Available Products</h1>
 
-            <div class="container">
-                <div class="row">
+    <div class="container">
+        <div class="row">
                    
-                    @foreach($products as $item)
+            @foreach($products as $item)
                     
-                        <div class="col-md-4 my-3">
-                            <div class="card mx-2 h-100">
-                                <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="{{$item->name}}">
-                                <h5>{{$item->name}}</h5>
-                                <small>${{$item->price}}</small>
-                            </div>
-                        </div>
-                    @endforeach
+                <div class="col-md-4 my-3">
+                    <div class="card mx-2 h-100">
+                        <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="{{$item->name}}">
+                        <h5>{{$item->name}}</h5>
+                        <small>${{$item->price}}</small>
+                    </div>
                 </div>
-            </div>
-   
-
-    <div class=" text-center" >
-        <h2> All Categories</h2>
+            @endforeach
+        </div>
     </div>
+</div>
+
+<div class="py-10 mt-10"  >
     
-        
-        
-            <div class="text-center">
-            @foreach($category as $item)
-                <a href="{{url('view_categories/'.$item->id)}}">
-                <h5>
-                    
-                    {{$item->name}}
-                   
-                </h5>
-                </a>
+        <h1 class="text-center mt-7"> All Categories</h1>
+   
+    
+       
+    <div class="container">
+        <div class="row">   
+    
+        @foreach($category as $citem)
+            <a href="{{url('view_categories/'.$citem->id)}}">
+                <h6 class="my-5 text-center">{{$citem->name}}</h6>
+            </a>
+                @foreach($products as $item)
+                    @if($citem->name == $item->category_name)
+                   <div class="col-md-4 ">
+                        <div class="card mx-2 h-20 my-3">
+                            <!-- <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="{{$item->name}}"> -->
+                            <h5>{{$item->name}}</h5>
+                            <small>${{$item->price}}</small>
+                        </div>
+                    </div>
+                    @endif
                 @endforeach
-</div>
-        
+            
+        @endforeach
+        </div>
+    </div>
+    </div>
+</div>      
     
-</div>
+<style>
+    a{
+        text-decoration: none !important;
+    }
+</style>
 
   <!-- Scripts -->
   <script src="{{ asset('admin/js/popper.min.js') }}" defer></script>

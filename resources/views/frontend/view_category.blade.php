@@ -17,29 +17,29 @@
 
 
 <div class="py-5">
-<h2> {{$category->name}} </h2>
-<div class="container">
+    <h2 class="text-center"> {{$category->name}} </h2>
+    <div class="container">
 
-    <div class="row">
-        @foreach($products as $prod)
-            <div class="item">
+        <div class="row">
+            @foreach($products as $prod)
+            
                 <div class="col-md-3 mb-3">
-                <div class="card">
+                    <div class="card m-3">
             
-                    <img src=" {{ asset('assets/uploads/products/'.$prod->image) }} " alt="">
+                        <img src=" {{ asset('assets/uploads/products/'.$prod->image) }} " alt="">
+                
+                        <h5> {{$prod->name}} </h5>
+                        <p> ${{$prod->price}} </p>
+                
             
-                    <h5> {{$prod->name}} </h5>
-                    <p> ${{$prod->price}} </p>
+                    </div>
+                </div>
             
-            
-        </div>
-        </div>
-    </div>
 
-    @endforeach
-    </div>
+            @endforeach
+        </div>
    
-</div>
+    </div>
 
 </div>
 

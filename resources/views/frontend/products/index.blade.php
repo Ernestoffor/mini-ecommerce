@@ -54,6 +54,13 @@
     
 </div>
 
+
+<style>
+    a {
+        text-decoration: none !important;
+    }
+</style>
+
   <!-- Scripts -->
   <script src="{{ asset('admin/js/popper.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/bootstrap.min.js') }}" defer></script>
