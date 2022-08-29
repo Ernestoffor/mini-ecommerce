@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Frontend\ViewController;
 use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Support\Facades\Route;
@@ -16,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $products = Products::all();
-    $category = Category::all();
+// Route::get('/', function () {
+//     $products = Products::all();
+//     $category = Category::all();
 
-    return view('welcome', compact('products', 'category'));
-});
+//     return view('welcome', compact('products', 'category'));
+// });
+
+Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
+
+Route::get('view_categories/{id}', [ViewController::class, 'view_category']);
 
 Auth::routes();
 
